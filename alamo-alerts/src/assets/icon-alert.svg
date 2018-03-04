@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="31px" viewBox="0 0 26 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>notifications-bell-button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-7" transform="translate(-105.000000, -191.000000)" fill-rule="nonzero" fill="#EEC642">
+            <g id="alert-picker" transform="translate(-8.000000, 0.000000)">
+                <g id="notifications-bell-button" transform="translate(113.000000, 191.000000)">
+                    <path d="M13,31 C14.65,31 16,29.65 16,28 L10,28 C10,29.65 11.35,31 13,31 Z M22.9411765,21.4117647 L22.9411765,13 C22.9411765,8.25882353 19.7294118,4.43529412 15.2941176,3.36470588 L15.2941176,2.29411765 C15.2941176,1.07058824 14.2235294,0 13,0 C11.7764706,0 10.7058824,1.07058824 10.7058824,2.29411765 L10.7058824,3.36470588 C6.27058824,4.43529412 3.05882353,8.25882353 3.05882353,13 L3.05882353,21.4117647 L0,24.4705882 L0,26 L26,26 L26,24.4705882 L22.9411765,21.4117647 Z M20,23 L6,23 L6,12.9545455 C6,9.09090909 9.11111111,6 13,6 C16.8888889,6 20,9.09090909 20,12.9545455 L20,23 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
