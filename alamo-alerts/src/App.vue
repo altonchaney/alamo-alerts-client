@@ -9,18 +9,20 @@
     </section>
     <section class="main">
       <div class="main-container">
-        <div class="location-control-container">
+        <div class="location-control-container"
+             v-on:click="locationListOpen=!locationListOpen"
+             v-bind:class="{ open: locationListOpen }">
           <div class="control">
             <p class="header">Select a Location</p>
             <h1 class="active-option">{{ activeLocation.name }} <span class="icon-expand"></span></h1>
           </div>
           <div class="list">
             <ul>
-              <a v-for="location in locations">
+              <router-link :to="location.slug" v-for="location in locations">
                 <li>
                   <h1>{{ location.name }}</h1>
                 </li>
-              </a>
+              </router-link>
               <li>
                 <h1 class="active">SOUTH LAMAR</h1>
               </li>
@@ -57,14 +59,13 @@
     name: 'App',
     data() {
       return {
-
         locations: [
           { id: '0003', name: 'Village', slug: 'village'},
           { id: '0006', name: 'South Lamar', slug: 'south-lamar'},
           { id: '0009', name: 'Mueller', slug: 'mueller'}
         ],
-        activeLocation: { id: '0003', name: 'Village', slug: 'village'}
-
+        activeLocation: { id: '0003', name: 'Village', slug: 'village'},
+        locationListOpen: false
       }
     },
     methods: {

@@ -33,6 +33,7 @@
 
     methods: {
       fetchData() {
+        this.listings.length = 0
         axios.get('http://localhost:3131/tweets/'+this.$route.params.locationslug)
         .then((resp) => {
           for (let i=0; i < resp.data.length; i++) {
