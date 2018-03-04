@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import './rxjs-operators';
@@ -10,7 +10,7 @@ export class TwitterService {
   constructor (private http: Http) {}
 
   getTweets(): Observable<Tweet[]> {
-    return this.http.get('tweets/village')
+    return this.http.get('http://localhost:3131/tweets/village')
                     .map(this.extractTweetData)
                     .catch(this.handleError);
   }

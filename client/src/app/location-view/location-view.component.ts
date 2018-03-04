@@ -6,7 +6,7 @@ import { TwitterService } from '../twitter.service';
 @Component({
   selector: 'app-location-view',
   templateUrl: './location-view.component.html',
-  styleUrls: [ './location-view.component.css' ]
+  styleUrls: [ './location-view.component.less' ]
 })
 export class LocationViewComponent implements OnInit {
   errorMessage: string;

@@ -1,18 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule }       from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { BrowserModule }  from '@angular/platform-browser';
 
+import { AppRoutingModule }     from './app-routing.module';
 
-import { AppComponent } from './app.component';
-
+import { AppComponent }         from './app.component';
+import { LocationViewComponent }   from './location-view/location-view.component';
+import { TwitterService }          from './twitter.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    LocationViewComponent
+  ],
+  providers: [ TwitterService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
