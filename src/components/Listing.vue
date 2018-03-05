@@ -109,7 +109,7 @@
 
         // then set up the location listings
         this.listings.length = 0
-        axios.get('http://localhost:3131/tweets/'+currentSlug)
+        axios.get('http://api.alamoalerts.com/tweets/'+currentSlug)
         .then((resp) => {
           for (let i=0; i < resp.data.length; i++) {
             // remove leading text
