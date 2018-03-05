@@ -142,9 +142,7 @@ section.main {
   background-repeat: repeat;
   padding: 20px 40px 40px;
 }
-a {
-  text-decoration: none;
-}
+a, a:hover { text-decoration: none; color: black; }
 h1 {
   font-size: 24px;
   font-weight: 800;
@@ -471,6 +469,7 @@ button:focus {
 }
 .feed-footer .button-content {
   color: #EABB31;
+  background-color: white;
   padding-top: 12px;
 }
 @media screen and (min-width: 760px) {
