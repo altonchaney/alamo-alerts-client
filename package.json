@@ -5,20 +5,19 @@
   "author": "Alton Chaney <alton@insito.me>",
   "private": true,
   "scripts": {
+    "start": "node client.js",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start-dev": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js",
-    "start": "node client.js"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.2",
     "moment": "^2.21.0",
     "path": "^0.12.7",
-    "serve-static": "^1.13.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
