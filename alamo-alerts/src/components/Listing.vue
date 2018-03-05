@@ -25,16 +25,16 @@
         </div>
         <ul class="alert-options">
           <li class="twitter">
-            <a href="https://twitter.com/AlamoAlerts" target="_blank">
+            <a v-bind:href="'https://twitter.com/AlamoAlerts_'+activeLocation.id+''" target="_blank">
               <button class="button-content"><span class="icon"></span> TWITTER</button>
             </a>
-            <p class="description">Follow this location’s Twitter account to get alerts in your Feed. Turn on the bell for extra alertness.</p>
+            <p class="description">Follow {{ activeLocation.name }}’s Twitter account to get alerts in your Feed. Turn on the bell for extra alertness.</p>
           </li>
           <li class="rss">
-            <a href="https://twitrss.me/twitter_user_to_rss/?user=alamoalerts" target="_blank">
+            <a v-bind:href="'https://twitrss.me/twitter_user_to_rss/?user=alamoalerts_'+activeLocation.id+''" target="_blank">
               <button class="button-content"><span class="icon"></span> RSS FEED</button>
             </a>
-            <p class="description">Subscribe to this location’s RSS feed.</p>
+            <p class="description">Subscribe to {{ activeLocation.name }}’s RSS feed.</p>
           </li>
         </ul>
       </div>
@@ -75,9 +75,9 @@
     data() {
       return {
         locations: [
-          { id: '0003', name: 'Village', slug: 'village'},
-          { id: '0006', name: 'South Lamar', slug: 'south-lamar'},
-          { id: '0009', name: 'Mueller', slug: 'mueller'}
+          { id: '003', name: 'Village', slug: 'village'},
+          { id: '004', name: 'South Lamar', slug: 'south-lamar'},
+          { id: '008', name: 'Mueller', slug: 'mueller'}
         ],
         activeLocation: {},
         locationListOpen: false,
@@ -129,7 +129,11 @@
                 listingObject.title = listingStrings[j]
                 listingObject.addltimes = false
               }
-              this.listings.push(listingObject)
+
+              if (listingObject.title.length > 1) {
+                this.listings.push(listingObject)
+              }
+              
             }
             console.log(this.listings)
           }

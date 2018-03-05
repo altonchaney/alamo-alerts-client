@@ -456,6 +456,9 @@ button:focus {
   -webkit-animation: wiggle 200ms ease-in-out;
           animation: wiggle 200ms ease-in-out;
 }
+.main-list-container ul a:visited h3 {
+  color: black;
+}
 .feed-footer {
   width: 100%;
   text-align: center;
