@@ -95,7 +95,7 @@
     },
 
     filters: {
-      moment: function (date) {
+      moment: function(date) {
         return moment(date).format('MMM Do')
       }
     },
