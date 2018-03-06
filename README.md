@@ -1,6 +1,6 @@
 # Alamo Alerts Client
 
-> A Vue.js app that displays the latest films available at select Alamo Drafthouse Locations
+> A Vue.js app that displays the latest films available at select Alamo Drafthouse Locations.
 > Visit the app @ www.alamoalerts.com
 
 ## Build Setup
