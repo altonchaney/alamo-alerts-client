@@ -1,6 +1,6 @@
-# alamo-alerts
+# Alamo Alerts Client
 
-> A Vue.js project
+> A Vue.js app that displays the latest films available at select Alamo Drafthouse Locations
 
 ## Build Setup
 
@@ -9,7 +9,7 @@
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+npm run start:dev
 
 # build for production with minification
 npm run build
@@ -20,8 +20,10 @@ npm run build --report
 # run unit tests
 npm run unit
 
-# run all tests
-npm test
+# start express (build before using this)
+npm start
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Overview
+
+The Alamo Alerts client grabs the latest tweets from various Alamo Alerts feeds on Twitter and displays them in a beautiful UI. Users can choose from a set of alert options (currently Twitter and RSS) and set up notifications as they see fit.
