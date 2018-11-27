@@ -77,6 +77,8 @@
         locations: [
           { id: '003', name: 'Village', slug: 'village'},
           { id: '004', name: 'South Lamar', slug: 'south-lamar'},
+          { id: '006', name: 'Slaughter Lane', slug: 'slaughter-lane'},
+          { id: '007', name: 'Lakeline', slug: 'lakeline'},
           { id: '008', name: 'Mueller', slug: 'mueller'}
         ],
         activeLocation: {},
