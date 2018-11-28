@@ -116,26 +116,27 @@
           for (let i=0; i < resp.data.length; i++) {
             // remove leading text
             // split string by line breaks and dashes
-            const listingStrings = resp.data[i].text.slice(26).split('\n- ')
+            const listingStrings = resp.data[i].text.split('\n- ')
             const datePosted = resp.data[i].created_at
             console.log(resp.data[i].created_at)
             // push each of this strings into a listing object
             for (let j=0; j < listingStrings.length; j++) {
-              let listingObject = {}
-              // finally check and set addltime flag
-              listingObject.timestamp = datePosted
-              if (listingStrings[j].includes(" [Add'l Times]")) {
-                listingObject.title = listingStrings[j].substr(0, listingStrings[j].length-14)
-                listingObject.addltimes = true
-              } else {
-                listingObject.title = listingStrings[j]
-                listingObject.addltimes = false
-              }
+              if (j > 0) {
+                let listingObject = {}
+                // finally check and set addltime flag
+                listingObject.timestamp = datePosted
+                if (listingStrings[j].includes(" [Add'l Times]")) {
+                  listingObject.title = listingStrings[j].substr(0, listingStrings[j].length-14)
+                  listingObject.addltimes = true
+                } else {
+                  listingObject.title = listingStrings[j]
+                  listingObject.addltimes = false
+                }
 
-              if (listingObject.title.length > 1) {
-                this.listings.push(listingObject)
+                if (listingObject.title.length > 1) {
+                  this.listings.push(listingObject)
+                }
               }
-              
             }
             console.log(this.listings)
           }
