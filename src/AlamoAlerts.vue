@@ -28,13 +28,9 @@
     },
     methods: {
       getHeroImage() {
-        axios.get('https://api.themoviedb.org/3/discover/movie?api_key=69e93151bbb7ee3e03a532dd2995da45&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2018')
-        .then((resp) => {
-          this.heroImageUrl = 'https://image.tmdb.org/t/p/w1280/' + resp.data.results[0].backdrop_path
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+        axios.get('https://api.themoviedb.org/3/discover/movie?api_key=69e93151bbb7ee3e03a532dd2995da45&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=' + new Date().getFullYear())
+        .then((resp) => this.heroImageUrl = 'https://image.tmdb.org/t/p/w1280/' + resp.data.results[0].backdrop_path)
+        .catch((err) => console.log(err))
       }
     }
   }
