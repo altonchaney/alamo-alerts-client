@@ -9,7 +9,8 @@
       <div class="list" v-on:click="locationListOpen=false">
         <ul>
           <router-link :to="location.slug"
-                       v-for="location in locations">
+                       v-for="location in locations"
+                       v-bind:key="location.slug">
             <li>
               <h1 v-bind:class="{ active: location.slug === activeLocation.slug }">{{ location.name }}</h1>
             </li>
@@ -43,12 +44,16 @@
     <div class="main-list-container">
       <p class="header">Recently On Sale</p>
       <ul class="main-list">
-        <li class="loader" v-if="listings.length === 0"
-                           v-for="index in 6">
-          <div class="release-date"></div>
-          <div class="title"></div>
-        </li>
-        <li v-for="listing in listings">
+        <template v-if="listings.length === 0">
+          <li class="loader" 
+              v-for="index in 8"
+              v-bind:key="index">
+            <div class="release-date"></div>
+            <div class="title"></div>
+          </li>
+        </template>
+        
+        <li v-for="listing in listings" v-bind:key="listing.title + listing.timestamp">
           <p class="release-date">Since {{ listing.timestamp | moment }}</p>
           <a v-bind:href="'https://drafthouse.com/austin/theater/'+$route.params.locationslug+''" target="_blank">
             <h2>{{ listing.title }} &raquo;</h2>
@@ -125,13 +130,14 @@
                       // finally check and set addltime flag
                       listingObject.timestamp = datePosted
                       if (listingStrings[j].includes(" [Addl Times]")) {
-                        listingObject.title = listingStrings[j].substr(0, listingStrings[j].length-14)
+                        listingObject.title = listingStrings[j].substr(0, listingStrings[j].length-13)
                         listingObject.addltimes = true
                       } else {
                         listingObject.title = listingStrings[j]
                         listingObject.addltimes = false
                       }
                       if (listingObject.title.length > 1) {
+                        listingObject.title = listingObject.title.replace(/ *\b\S*?https\S*\b/g, '')
                         this.listings.push(listingObject)
                       }
                     }
