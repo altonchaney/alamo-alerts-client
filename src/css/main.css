@@ -84,6 +84,9 @@ body {
   -webkit-tap-highlight-color: transparent;
   background-color: #EABB31;
 }
+iframe {
+  width: 100% !important;
+}
 section {
   width: 100%;
   display: -webkit-box;

@@ -31,19 +31,28 @@
             </a>
             <p class="description">Follow {{ activeLocation.name }}’s Twitter account to get alerts in your Feed. Turn on the bell for extra alertness.</p>
           </li>
-          <li class="rss">
+          <!-- <li class="rss">
             <a v-bind:href="'https://twitrss.me/twitter_user_to_rss/?user=alamoalerts_'+activeLocation.id+''" target="_blank">
               <button class="button-content"><span class="icon"></span> RSS FEED</button>
             </a>
             <p class="description">Subscribe to {{ activeLocation.name }}’s RSS feed.</p>
-          </li>
+          </li> -->
         </ul>
       </div>
       <p class="close-modal" v-on:click="alertSetupOpen=false">&times; CLOSE THIS</p>
     </div>
     <div class="main-list-container">
       <p class="header">Recently On Sale</p>
-      <ul class="main-list">
+      <div v-for="location in locations"
+        v-bind:key="'twitter-feed-embed-' + location.slug" v-bind:style="{ display: activeLocation.id === location.id ? 'block' : 'none' }">
+        <a  class="twitter-timeline" data-lang="en" data-dnt="true" data-theme="dark"
+      v-bind:href="'https://twitter.com/AlamoAlerts_'+location.id+'?ref_src=twsrc%5Etfw'"
+        >
+          Tweets by AlamoAlerts_{{ location.id }}
+        </a>
+      </div>
+      
+      <!-- <ul class="main-list">
         <template v-if="listings.length === 0">
           <li class="loader" 
               v-for="index in 8"
@@ -60,7 +69,7 @@
             <h3 v-if="listing.addltimes">ADDITIONAL TIMES!</h3>
           </a>
         </li>
-      </ul>
+      </ul> -->
     </div>
     <div class="feed-footer">
       <p class="disclaimer">NOTE: Ticket availability subject to change.</p>
@@ -71,7 +80,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
   import moment from 'moment'
 
   export default {
@@ -113,37 +121,6 @@
         const currentSlug = this.$route.params.locationslug
         this.activeLocation = this.locations.find(function(obj) { return obj.slug === currentSlug })
         this.locationListOpen = false
-
-        // then set up the location listings
-        this.listings.length = 0
-        axios.get('https://api.alamoalerts.com/tweets/'+currentSlug)
-              .then((resp) => {
-                for (let i=0; i < resp.data.length; i++) {
-                  // remove leading text
-                  // split string by line breaks and dashes
-                  const listingStrings = resp.data[i].text.split('\n- ')
-                  const datePosted = resp.data[i].created_at
-                  // push each of this strings into a listing object
-                  for (let j=0; j < listingStrings.length; j++) {
-                    if (j > 0) {
-                      let listingObject = {}
-                      // finally check and set addltime flag
-                      listingObject.timestamp = datePosted
-                      if (listingStrings[j].includes(" [Addl Times]")) {
-                        listingObject.title = listingStrings[j].substr(0, listingStrings[j].length-13)
-                        listingObject.addltimes = true
-                      } else {
-                        listingObject.title = listingStrings[j]
-                        listingObject.addltimes = false
-                      }
-                      if (listingObject.title.length > 1) {
-                        listingObject.title = listingObject.title.replace(/ *\b\S*?https\S*\b/g, '')
-                        this.listings.push(listingObject)
-                      }
-                    }
-                  }
-                }
-              }).catch((err) => console.log(err))
       }
     }
   }

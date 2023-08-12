@@ -8,7 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/lakeline'
+      redirect: '/mueller'
     },
     {
       path: '/:locationslug',
