@@ -1,0 +1,32 @@
+@import "tailwindcss" source(".");
+
+/* Import preserved legacy styles */
+@import "./styles/legacy.css";
+
+@theme {
+  /* Font family */
+  --font-sans: "Lato", "Roboto", "San Francisco", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+
+  /* Custom colors */
+  --color-alamo-yellow: #EABB31;
+  --color-bluesky-blue: #0085FF;
+  --color-rss-orange: #F26522;
+
+  /* Keyframe animations */
+  --animate-wiggle: wiggle 200ms ease-in-out;
+  --animate-loader: loader 1s ease infinite;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(1deg); }
+  25% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes loader {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

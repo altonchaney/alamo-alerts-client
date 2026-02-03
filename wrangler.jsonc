@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "alamo-alerts-client",
+  "compatibility_date": "2025-04-04",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./workers/app.ts",
+  "assets": {
+    "directory": "./build/client"
+  },
+    "vars": {
+    "TMDB_API_KEY": "69e93151bbb7ee3e03a532dd2995da45"
+  },
+  // D1 Database for caching Bluesky posts
+  // To create: wrangler d1 create alamo-alerts-cache
+  // Then update the database_id below
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "alamo-alerts-cache",
+      "database_id": "03103802-b4cc-4eeb-a7ac-52a318ec4ecf"
+    }
+  ]
+}

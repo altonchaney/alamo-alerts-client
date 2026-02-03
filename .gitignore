@@ -3,8 +3,20 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/test/unit/coverage/
+
+# Build output
+/build/
 /dist/
+
+# React Router
+/.react-router/
+
+# Cloudflare
+/.wrangler/
+.dev.vars
+
+# TypeScript
+*.tsbuildinfo
 
 # Editor directories and files
 .idea
@@ -13,3 +25,8 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+
+# Environment variables
+.env
+.env.local
+.env.production
